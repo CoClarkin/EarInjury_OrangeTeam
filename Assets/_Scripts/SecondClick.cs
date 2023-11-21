@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class SecondClick : MonoBehaviour
 {
     bool isClicked;
-    public GameObject myPanel;
+    public GameObject myFirstPanel;
+
 
     // Removing the panel set active on second click
     public void Close()
@@ -15,12 +16,13 @@ public class SecondClick : MonoBehaviour
 
         if(isClicked == true)
         {
-            myPanel.SetActive(true);
+            myFirstPanel.SetActive(true);
         }
 
         if(isClicked == false)
         {
-            myPanel.SetActive(false);
+            myFirstPanel.SetActive(false);
         }
+
     }
 }
