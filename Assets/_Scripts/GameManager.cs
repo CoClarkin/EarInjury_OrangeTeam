@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,9 +10,11 @@ public class GameManager : MonoBehaviour
     public static GameManager singleton; 
 
     
-    //Singleton
-    void Awake() {
-        
+    void Awake() 
+    {
+
+        //Singleton
+
         if (singleton == null) {
             singleton = this;
         }
@@ -23,22 +26,23 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+
     //Change scene with index number
-    public void ChangeScene (int sceneIndex) {
+    public void ChangeScene (int sceneIndex) 
+    {
         SceneManager.LoadScene(sceneIndex);
     }
 
     //End game
-    public void Quit() {
+    public void Quit() 
+    {
     Debug.Log("The Application has quit.");
         Application.Quit();
     }
 
 
-    //Health meter with switch statements
+}
+
+//Health meter with switch statements
 
     //Play audio on start (constant audio)
-
-    //Play audio on canvas button click
-
-}
