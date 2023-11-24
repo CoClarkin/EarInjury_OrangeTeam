@@ -7,18 +7,15 @@ public class Hits : MonoBehaviour
 //public Animator myAnimator;
 //AudioSource slapCompilation
 {
-    List<AudioSource> myListOfAudio = new List<AudioSource>();
-
-    // Start is called before the first frame update
-    void Start()
-    {
-       //store all audios in an aray or list (c#componant)
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public List<AudioSource> myListOfAudio = new List<AudioSource>();
+ 
+   void OnMouseDown()
+   {
+    //RefrenceSwitch from healthbar code
+    //call audiohit compilation
+    //call textbox
+    //trigger Earanimation
+    //trigger delay animatino
+    // if above active  move to next set else mouse down inactive
+   }
 }

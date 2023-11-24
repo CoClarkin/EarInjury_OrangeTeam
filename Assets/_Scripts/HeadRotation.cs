@@ -6,26 +6,13 @@ public class HeadRotation : MonoBehaviour
 {
   private GameObject head;
     float yRotation;
-    void Awake()
-    {
-        //trying to have the head rotate back to the original position on click of the ear and then the animation is triggered
-        //head = GetComponent<Transform>();
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-       
-    }
-
+    public static bool zoomedIn;
   
     private void OnMouseDrag()
     {
+        if (zoomedIn) return;
+        
         yRotation = Input.GetAxis("Mouse X");
         Debug.Log(yRotation);
 
