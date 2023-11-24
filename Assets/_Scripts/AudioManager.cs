@@ -2,16 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement; 
 
 public class AudioManager : MonoBehaviour
 
 {
     public Slider volumeSlider;
+    public GameObject audioSettings;
+    
 
     //dont destroy game object with background audio between scenes
+
    void Awake()
    {
     DontDestroyOnLoad(transform.gameObject);
+    
+    //if no player prefs set, set volume to 1; otherwise load player prefs
 
     if (!PlayerPrefs.HasKey("background volume"))
         {
@@ -34,7 +40,7 @@ public class AudioManager : MonoBehaviour
     }
 
     
-    //Save player preferences
+        //Save player preferences
         //save volume
 
         public void Save()
@@ -43,12 +49,24 @@ public class AudioManager : MonoBehaviour
         }
 
 
-    //Load player preferences
-        //load saved volume
+        //Load player preferences
 
         public void Load()
         {
             volumeSlider.value = PlayerPrefs.GetFloat("background volume");
         }
+
+        //on new scene find the panel audio, find its slider and set the value and volume to the player prefs
+        void OnLevelWasLoaded()
+        { 
+           audioSettings = GameObject.Find("PanelAudio");
+           volumeSlider = audioSettings.GetComponentInChildren<Slider>();
+           volumeSlider.onValueChanged.AddListener (delegate {ValueChangeCheck ();});
+           Load();
+        }
+        public void ValueChangeCheck()
+	    {
+		    VolumeChanger();
+	    }
 
 }
