@@ -5,7 +5,7 @@ using UnityEngine;
 public class TestAnimationScript : MonoBehaviour
 {
     int hitList = 0;
-    public Material transparentMat;
+    public Material transparentMat, transparentPartMat;
 
     public Renderer earRen;
     public Material earMat1, earMat2; //can earMat2 inherit the alpha properties of earMat1?
@@ -13,14 +13,12 @@ public class TestAnimationScript : MonoBehaviour
     public Renderer arteryRen;
     public Material arteryMat1, arteryMat2;
     public Animator arteryDistalAnim;
-    public GameObject blood1;
-    //public Renderer blood1Ren;
-    //public Material blood1Mat;
-    public ParticleSystem blood1Part;
 
-    public GameObject blood2;
-    //public Material blood2Mat;
-    public ParticleSystem blood2Part;
+    public GameObject blood1, blood2;
+    public Renderer blood1Ren, blood2Ren;
+    public Material bloodMat;
+    public Animator earExternalAnim;
+    public ParticleSystem blood1Part, blood2Part;
 
     public Renderer skullRen;
     public Material skullMat1;
@@ -33,7 +31,8 @@ public class TestAnimationScript : MonoBehaviour
         earRen.material = earMat1;
         skullRen.material = skullMat1;
         arteryRen.material = arteryMat1;
-        blood1.SetActive(false);
+        //blood1.SetActive(false);
+
     }
 	
     void OnMouseDown()
@@ -62,11 +61,10 @@ public class TestAnimationScript : MonoBehaviour
             case 3:
                 //hematoma forms
                 Debug.Log("case 3");
-                var slowDown = blood1Part.limitVelocityOverLifetime;
-                slowDown.enabled = true;
-                slowDown.dampen = 0.5f;
-                //StartCoroutine(CrossfadeMaterial(5.0f, blood1Ren, blood1Ren.material, transparentMat));
+                StartCoroutine(CrossfadeMaterial(5.0f, blood1Ren, bloodMat, transparentPartMat));  //fade out flowing blood
+                StartCoroutine(CrossfadeMaterial(5.0f, blood2Ren, transparentPartMat, bloodMat));  //fade in floating blood
                 blood2.SetActive(true);
+                earExternalAnim.SetTrigger("play_hematoma");
                 //.SetTrigger for skin bulge
                 break;
             
