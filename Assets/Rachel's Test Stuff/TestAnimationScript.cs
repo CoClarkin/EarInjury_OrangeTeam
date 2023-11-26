@@ -9,13 +9,13 @@ public class TestAnimationScript : MonoBehaviour
 
     public Renderer earRen;
     public Material earMat1, earMat2; //can earMat2 inherit the alpha properties of earMat1?
-    
+
     public Renderer arteryRen;
     public Material arteryMat1, arteryMat2;
     public Animator arteryDistalAnim;
 
-    public GameObject blood1, blood2;
-    public Renderer blood1Ren, blood2Ren;
+    public GameObject blood1, blood2, bloodClot;
+    public Renderer blood1Ren, blood2Ren, bloodClotRen;
     public Material bloodMat;
     public Animator earExternalAnim;
     public ParticleSystem blood1Part, blood2Part;
@@ -27,12 +27,11 @@ public class TestAnimationScript : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
     {
-        //set all materials/animations to the right material/state
+        //set everything to initial state
         earRen.material = earMat1;
         skullRen.material = skullMat1;
         arteryRen.material = arteryMat1;
-        //blood1.SetActive(false);
-
+        
     }
 	
     void OnMouseDown()
@@ -54,7 +53,7 @@ public class TestAnimationScript : MonoBehaviour
                 //artery breaks, blood starts flowing
                 Debug.Log("case 2");
                 arteryDistalAnim.SetTrigger("play_artery_break");  //play artery break animation
-                blood1.SetActive(true);  //turn visibility of blood flow on
+                blood1.SetActive(true);  //turn on flowing blood
                 StartCoroutine(CrossfadeMaterial(5.0f, arteryRen, arteryMat1, arteryMat2));  //fade to dark artery material
                 break;
             
@@ -62,26 +61,34 @@ public class TestAnimationScript : MonoBehaviour
                 //hematoma forms
                 Debug.Log("case 3");
                 StartCoroutine(CrossfadeMaterial(5.0f, blood1Ren, bloodMat, transparentPartMat));  //fade out flowing blood
+                blood2.SetActive(false); //turn off flowing blood
                 StartCoroutine(CrossfadeMaterial(5.0f, blood2Ren, transparentPartMat, bloodMat));  //fade in floating blood
-                blood2.SetActive(true);
-                earExternalAnim.SetTrigger("play_hematoma");
-                //.SetTrigger for skin bulge
+                blood2.SetActive(true);  //turn on floating blood
+                earExternalAnim.SetTrigger("play_hematoma");  //play hematoma animaion
                 break;
             
             case 4:
+                //blood clots
                 Debug.Log("case 4");
+                StartCoroutine(CrossfadeMaterial(3.0f, blood2Ren, bloodMat, transparentPartMat));  //fade out floating blood
+                bloodClot.SetActive(true);  //turn on blood clot
+                StartCoroutine(CrossfadeMaterial(3.0f, bloodClotRen, transparentMat, arteryMat2));  //fade in blood clot
+                StartCoroutine(CrossfadeMaterial(3.0f, arteryRen, arteryMat2, transparentMat));  //fade out distal artery
                 break;
 
             case 5:
+                //cartilage shrinks and changes color
+                //need texture for this
                 Debug.Log("case 5");
-                //StartCoroutine(CrossfadeMaterial(5.0f, arteryRen, arteryMat1, transparentMat));  //fade out distal artery
                 break;
 
             case 6:
+                //cauliflower ear develops
                 Debug.Log("case 6");
                 break;
 
             case 7:
+                //ear drum rips
                 Debug.Log("case 7");
                 break;
         }
