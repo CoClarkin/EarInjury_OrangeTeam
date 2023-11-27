@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.PlayerLoop;
 public class DropSlot : MonoBehaviour, IDropHandler
 {
     public int id;
+
     public void OnDrop(PointerEventData eventData)
     {
         Debug.Log("on drop");
@@ -18,7 +19,8 @@ public class DropSlot : MonoBehaviour, IDropHandler
             {
                 Debug.Log("false");
                 eventData.pointerDrag.GetComponent<DragDrop>().ResetPosition();
-    
+                GameObject.Find("PanelPictureQuiz").GetComponent<QuizHealth>().quizHealth = GameObject.Find("PanelPictureQuiz").GetComponent<QuizHealth>().quizHealth - 1; 
+                GameObject.Find("PanelPictureQuiz").GetComponent<QuizHealth>().ChangeBar();
             }
     }
 }
