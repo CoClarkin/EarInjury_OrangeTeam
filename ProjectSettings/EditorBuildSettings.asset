@@ -29,4 +29,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/01Fight_Lisa.unity
     guid: afbe695fea3ee734ebf99f15dbcb5515
+  - enabled: 1
+    path: Assets/_Scenes/04Quiz_Lisa.unity
+    guid: f75e90758da28fb48ab9e4c82f504a65
+  - enabled: 1
+    path: Assets/_Scenes/04Quiz_Lisa2.unity
+    guid: 5e71cbc39e8c38e44b2c491ead0d9385
+  - enabled: 1
+    path: Assets/_Scenes/04Quiz_Lisa3.unity
+    guid: bfab52b407c9b6f43b94af3a298303e8
   m_configObjects: {}

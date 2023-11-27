@@ -18,10 +18,9 @@ public class QuizHealth : MonoBehaviour
             Debug.Log("quiz health begins");
                     switch (quizHealth)
                     {
-                    case 4:
+                     case 4:
                         highhealthBar.SetActive(true);
                         break;
-            
                      case 3:
                         highhealthBar.SetActive(false);
                         mediumhealthBar.SetActive(true);
