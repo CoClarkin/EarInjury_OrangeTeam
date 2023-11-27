@@ -12,17 +12,17 @@ public class QuestionManager : MonoBehaviour
     public GameObject myPosFB;
     public GameObject myNegFB;
 
+    private AudioSource correctAudio;
+    private AudioSource incorrectAudio;
+
     // Start is called before the first frame update
+    
     void Start()
     {
         //access toggle group component
         mytoggleGrp = transform.GetComponent<ToggleGroup>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        correctAudio = GameObject.Find("AudioCorrect").GetComponent<AudioSource>();
+        incorrectAudio = GameObject.Find("AudioIncorrect").GetComponent<AudioSource>();
     }
 
     public void OnConfirmClick()
@@ -42,7 +42,7 @@ public class QuestionManager : MonoBehaviour
             Debug.Log("correct");
             //enable the positive FB image
             myPosFB.SetActive(true);
-
+            correctAudio.Play();
             GameObject.Find("PanelWordQuiz").GetComponent<QuizManager>().scoreNB = GameObject.Find("PanelWordQuiz").GetComponent<QuizManager>().scoreNB + 1;
          }
 
@@ -51,6 +51,7 @@ public class QuestionManager : MonoBehaviour
             Debug.Log("loser");
             //enable neg FB image
             myNegFB.SetActive(true);
+            incorrectAudio.Play();
         }
            
     }
