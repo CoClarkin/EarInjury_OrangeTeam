@@ -41,9 +41,13 @@ public class QuizHealth : MonoBehaviour
                      case 1:
                         lowhealthBar.SetActive(false);
                         finalPanel.SetActive(true);
-                        notQuite = GameObject.Find("NotQuite");
+                        notQuite = GameObject.Find("TxtNotQuite");
                         notQuite.SetActive(true);
+                        wellDone = GameObject.Find("TxtWellDone");
+                        wellDone.SetActive(false);
                         GameObject.Find("PanelEarOne").SetActive(false);
+                        submitButton = GameObject.Find("BtnSubmit");
+                        submitButton.SetActive(false);
                         break;
                     }
         }
@@ -59,10 +63,10 @@ public class QuizHealth : MonoBehaviour
 
             finalPanel.SetActive(true);
 
-            wellDone = GameObject.Find("WellDone");
+            wellDone = GameObject.Find("TxtWellDone");
             wellDone.SetActive(true);
 
-            notQuite = GameObject.Find("NotQuite");
+            notQuite = GameObject.Find("TxtNotQuite");
             notQuite.SetActive(false);
 
             lowhealthBar.SetActive(false);
@@ -76,15 +80,18 @@ public class QuizHealth : MonoBehaviour
             
             finalPanel.SetActive(true);
 
-            notQuite = GameObject.Find("NotQuite");
+            notQuite = GameObject.Find("TxtNotQuite");
             notQuite.SetActive(true);
 
-            wellDone = GameObject.Find("WellDone");
+            wellDone = GameObject.Find("TxtWellDone");
             wellDone.SetActive(false);
             
             lowhealthBar.SetActive(false);
             mediumhealthBar.SetActive(false);
             highhealthBar.SetActive(false);
+
+            submitButton = GameObject.Find("BtnSubmit");
+            submitButton.SetActive(false);
          }
       }
 }
