@@ -9980,11 +9980,14 @@ MonoBehaviour:
   bloodMat: {fileID: 2100000, guid: 56e3dced02d4ebc43a41998a7a6f46e8, type: 2}
   transparentMat: {fileID: 2100000, guid: c3816ba813fada84b8e10889cc21b3ea, type: 2}
   transparentPartMat: {fileID: 2100000, guid: 1b409d598afeee443b3d9837c8bd9fa9, type: 2}
+  earTexture: {fileID: 2800000, guid: 3efe86e436cd19244b74e59bb133aa4b, type: 3}
+  holdingTexture: {fileID: 2800000, guid: 90e9439002a38c14abae586f1fbdb076, type: 3}
   arteryDistalAnim: {fileID: 6750070404181465164}
   earExternalAnim: {fileID: 6462600668760839945}
   cartilageAnim: {fileID: 6750563014881006509}
   blood1Part: {fileID: 649818242}
   blood2Part: {fileID: 529489889}
+  dummyMat: {fileID: 0}
 --- !u!1 &2041267295
 GameObject:
   m_ObjectHideFlags: 0
