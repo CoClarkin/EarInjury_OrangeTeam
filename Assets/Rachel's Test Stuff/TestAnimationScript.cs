@@ -34,7 +34,6 @@ public class TestAnimationScript : MonoBehaviour
 
 	private void Awake()
 	{
-        //put getcomponents here eventually
         arteryProximalRen = arteryProximal.GetComponent<Renderer>();
         arteryDistalRen = arteryDistal.GetComponent<Renderer>();
         cartilageRen = cartilage.GetComponent<Renderer>();
@@ -62,24 +61,21 @@ public class TestAnimationScript : MonoBehaviour
             case 0:
                 //first zoom in, adjust material transparency
                 Debug.Log("case 0");
-                
-                //why can't all this ^^^ go in awake()?
-                StartCoroutine(CrossfadeMaterial(1.0f, arteryProximalRen, arteryMat1, transparentMat));
-                StartCoroutine(CrossfadeMaterial(1.0f, arteryDistalRen, arteryMat1, transparentMat));
-                StartCoroutine(CrossfadeMaterial(1.0f, cartilageRen, cartilageMat1, transparentMat));
-                StartCoroutine(CrossfadeMaterial(1.0f, earExternalRen, skinTransparentMat, skinMat));
-                StartCoroutine(CrossfadeMaterial(1.0f, earCoverRen, skinTransparentMat, skinMat));
-                StartCoroutine(CrossfadeMaterial(1.0f, faceRen, skinTransparentMat, skinMat));
-
-                //skull.SetActive(false);
+                StartCoroutine(CrossfadeMaterial(1.0f, faceRen, skinTransparentMat, skinMat));  //fade in face
+                StartCoroutine(CrossfadeMaterial(1.0f, eyesRen, eyesRen.material, transparentMat));  //fade out eyes
+                StartCoroutine(CrossfadeMaterial(1.0f, hairRen, hairRen.material, transparentMat));  //fade out hair
+                StartCoroutine(CrossfadeMaterial(1.0f, arteryProximalRen, arteryMat1, transparentMat));  //fade out proximal artery
+                StartCoroutine(CrossfadeMaterial(1.0f, arteryDistalRen, arteryMat1, transparentMat));  //fade out distal artery
+                StartCoroutine(CrossfadeMaterial(1.0f, cartilageRen, cartilageMat1, transparentMat));  //fade out cartilage
+                StartCoroutine(CrossfadeMaterial(1.0f, earExternalRen, skinTransparentMat, skinMat));  //fade in ear
+                StartCoroutine(CrossfadeMaterial(1.0f, earCoverRen, skinTransparentMat, skinMat));  //fade in ear cover
                 break;
             
             case 1:
                 //ear bruises
                 Debug.Log("case 1");
-                StartCoroutine(CrossfadeMaterial(1.0f, earExternal.GetComponent<Renderer>(), earMat1, earMat2));  //fade to bruised ear material
-                StartCoroutine(CrossfadeMaterial(1.0f, eyesRen, eyesRen.material, transparentMat));
-                StartCoroutine(CrossfadeMaterial(1.0f, hairRen, hairRen.material, transparentMat));
+                skull.SetActive(false);  //turn off skull
+                StartCoroutine(CrossfadeMaterial(1.0f, earExternalRen, earMat1, earMat2));  //fade to bruised ear material              
                 break;
             
             case 2:
