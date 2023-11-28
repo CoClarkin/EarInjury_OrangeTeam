@@ -21,8 +21,10 @@ public class DropSlot : MonoBehaviour, IDropHandler
         if (eventData.pointerDrag.GetComponent<DragDrop>().id == id) 
             {
                 Debug.Log("correct");
-                eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = this.GetComponent<RectTransform>().anchoredPosition;
+                //eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = this.GetComponent<RectTransform>().anchoredPosition;
+                eventData.pointerDrag.GetComponent<RectTransform>().transform.position = this.GetComponent<RectTransform>().transform.position;
                 correctAudio.Play();
+            
             }
         else
             {
