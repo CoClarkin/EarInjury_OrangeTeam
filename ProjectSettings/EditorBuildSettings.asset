@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/_Scenes/01Fight.unity
     guid: db20d7fb7188e2943bf678d102c2d9f1
   - enabled: 1
-    path: Assets/_Scenes/02CauliflowerEar.unity
+    path: Assets/_Scenes/02CauliflowerEar_Courtney.unity
     guid: 7807f8b15a90a844eaaa5fb86672e658
   - enabled: 1
     path: Assets/_Scenes/03EarDrum.unity
