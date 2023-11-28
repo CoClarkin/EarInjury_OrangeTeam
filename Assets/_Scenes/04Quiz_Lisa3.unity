@@ -381,6 +381,7 @@ GameObject:
   - component: {fileID: 184772392}
   - component: {fileID: 184772391}
   - component: {fileID: 184772390}
+  - component: {fileID: 184772393}
   m_Layer: 5
   m_Name: BtnTryAgain
   m_TagString: Untagged
@@ -404,10 +405,10 @@ RectTransform:
   m_Father: {fileID: 1482748781}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 150, y: -41}
+  m_SizeDelta: {x: 300, y: 82}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &184772390
 MonoBehaviour:
@@ -453,9 +454,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 319696692}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: ChangeScene
+      - m_Target: {fileID: 184772393}
+        m_TargetAssemblyTypeName: ButtonCaller, Assembly-CSharp
+        m_MethodName: sceneCaller
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -503,6 +504,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 184772388}
   m_CullTransparentMesh: 1
+--- !u!114 &184772393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 184772388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3063cab1b0cbf0a4395c12d0df08d2a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &214271284
 GameObject:
   m_ObjectHideFlags: 0
@@ -1695,7 +1708,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &604951209
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3831,6 +3844,7 @@ GameObject:
   - component: {fileID: 1342652202}
   - component: {fileID: 1342652201}
   - component: {fileID: 1342652200}
+  - component: {fileID: 1342652203}
   m_Layer: 5
   m_Name: BtnWordQuiz
   m_TagString: Untagged
@@ -3854,10 +3868,10 @@ RectTransform:
   m_Father: {fileID: 1482748781}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 150, y: -125}
+  m_SizeDelta: {x: 300, y: 82}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1342652200
 MonoBehaviour:
@@ -3903,9 +3917,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 319696692}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: ChangeScene
+      - m_Target: {fileID: 1342652203}
+        m_TargetAssemblyTypeName: ButtonCaller, Assembly-CSharp
+        m_MethodName: sceneCaller
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3953,6 +3967,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1342652198}
   m_CullTransparentMesh: 1
+--- !u!114 &1342652203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342652198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3063cab1b0cbf0a4395c12d0df08d2a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1352228683
 GameObject:
   m_ObjectHideFlags: 0
@@ -4540,6 +4566,7 @@ GameObject:
   - component: {fileID: 1539042281}
   - component: {fileID: 1539042280}
   - component: {fileID: 1539042279}
+  - component: {fileID: 1539042282}
   m_Layer: 5
   m_Name: BtnStart
   m_TagString: Untagged
@@ -4563,10 +4590,10 @@ RectTransform:
   m_Father: {fileID: 1482748781}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 150, y: -209}
+  m_SizeDelta: {x: 300, y: 82}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1539042279
 MonoBehaviour:
@@ -4612,9 +4639,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 319696692}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: ChangeScene
+      - m_Target: {fileID: 1539042282}
+        m_TargetAssemblyTypeName: ButtonCaller, Assembly-CSharp
+        m_MethodName: sceneCaller
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4662,6 +4689,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1539042277}
   m_CullTransparentMesh: 1
+--- !u!114 &1539042282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1539042277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3063cab1b0cbf0a4395c12d0df08d2a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1654696759
 GameObject:
   m_ObjectHideFlags: 0

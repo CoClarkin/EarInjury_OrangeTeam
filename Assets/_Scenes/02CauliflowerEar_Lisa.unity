@@ -3284,6 +3284,7 @@ GameObject:
   - component: {fileID: 1764172979}
   - component: {fileID: 1764172978}
   - component: {fileID: 1764172977}
+  - component: {fileID: 1764172980}
   m_Layer: 5
   m_Name: BtnNext
   m_TagString: Untagged
@@ -3356,9 +3357,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 670111990}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: ChangeScene
+      - m_Target: {fileID: 1764172980}
+        m_TargetAssemblyTypeName: ButtonCaller, Assembly-CSharp
+        m_MethodName: sceneCaller
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3406,6 +3407,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1764172975}
   m_CullTransparentMesh: 1
+--- !u!114 &1764172980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1764172975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3063cab1b0cbf0a4395c12d0df08d2a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1771937214
 GameObject:
   m_ObjectHideFlags: 0

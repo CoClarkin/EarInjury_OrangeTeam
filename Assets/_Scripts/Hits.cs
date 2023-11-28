@@ -21,6 +21,8 @@ public class Hits : MonoBehaviour
     public GameObject hit5text;
     public GameObject hit6text;
     private AudioManager audioManager;
+    private float dontPress = 0.0f;
+    public float waitTime;
  
     //public Animator Reachel's Animation
 
@@ -29,6 +31,15 @@ public class Hits : MonoBehaviour
     
     audioManager = FindObjectOfType<AudioManager>();
 
+   }
+
+   void Update()
+   {
+    dontPress += Time.deltaTime;
+    if (dontPress > waitTime)
+    {
+        
+    }
    }
    
    void OnMouseDown()
@@ -41,10 +52,17 @@ public class Hits : MonoBehaviour
             Debug.Log("hit1");
             hit1text.SetActive(true);
             audioManager.SlapAudioTrigger();
-            //need to set sprite active
+            //animation
             //start corouteen
-
+            gameObject.SetActive(false);
+            Debug.Log("inactive");
+            if (dontPress > waitTime)
+            {
+                gameObject.SetActive(true);
+                Debug.Log("active");
+            }
             break;
+        
             //RefrenceSwitch from healthbar code
             //call audiohit compilation
             //call Hit 1 Text
