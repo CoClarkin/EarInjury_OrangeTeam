@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 {
     //Create variable that is static and shared between all game managers
     public static GameManager singleton; 
+    
 
     
     void Awake() 
@@ -40,6 +41,7 @@ public class GameManager : MonoBehaviour
         Application.Quit();
     }
 
+    
 
 }
 

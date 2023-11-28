@@ -6,16 +6,24 @@ using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 
-{
-    public Slider volumeSlider;
+{   
+    public static AudioManager singleton;
+    public Slider volumeSlider = null;
     public GameObject audioSettings;
-    
+    public AudioSource slapCompilation;
+    public AudioClip [] slapSounds;    
 
     //dont destroy game object with background audio between scenes
 
    void Awake()
    {
-    DontDestroyOnLoad(transform.gameObject);
+      if (singleton == null) {
+            singleton = this;
+        } else if (singleton!= this) {
+            Destroy(gameObject);
+        }
+  
+   DontDestroyOnLoad(transform.gameObject);
     
     //if no player prefs set, set volume to 1; otherwise load player prefs
 
@@ -29,8 +37,10 @@ public class AudioManager : MonoBehaviour
             Load();
         }
 
-   }
+       
 
+   }
+    
    //change audio volume with slider
 
     public void VolumeChanger()
@@ -64,9 +74,16 @@ public class AudioManager : MonoBehaviour
            volumeSlider.onValueChanged.AddListener (delegate {ValueChangeCheck ();});
            Load();
         }
+
         public void ValueChangeCheck()
 	    {
 		    VolumeChanger();
 	    }
+
+        public void SlapAudioTrigger()
+        {
+            slapCompilation.clip =  slapSounds[Random.Range(0, slapSounds.Length)];
+            slapCompilation.Play();
+        }
 
 }

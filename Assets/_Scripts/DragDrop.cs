@@ -9,15 +9,20 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup; 
     public int id; 
-    private Vector2 initPosition;
+    public Vector2 initPosition;
 
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
-        initPosition = transform.position;
+        //initPosition = transform.position;
     }
     //Detect current clicks on the GameObject (the one with the script attached)
+
+    void Start()
+    {
+        initPosition = gameObject.transform.position;
+    }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
