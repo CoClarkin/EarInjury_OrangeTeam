@@ -5,43 +5,32 @@ using UnityEngine;
 public class TestAnimationScript : MonoBehaviour
 {
     int hitList = 0;
-    Renderer arteryProximalRen;
-    Renderer arteryDistalRen;
-    Renderer cartilageRen;
-    Renderer earExternalRen;
-    Renderer earCoverRen;
-    Renderer faceRen;
-    Renderer eyesRen;
-    Renderer hairRen;
-    public Material transparentMat, transparentPartMat;
 
-    public GameObject eyes, hair, face, skull, earExternal, earCover, cartilage, arteryProximal, arteryDistal, blood1, blood2, bloodClot;
-    public Material earMat1, earMat2, skinMat, skinTransparentMat;
+    public GameObject eyes, hair, face, skull, earExternal, earCover, 
+        cartilage, arteryProximal, arteryDistal, blood1, blood2, bloodClot;
+
+    Renderer eyesRen, hairRen, faceRen, earExternalRen, earCoverRen,
+        cartilageRen, arteryProximalRen, arteryDistalRen;
+
+    public Material skullMat1, earMat1, earMat2, skinMat, skinTransparentMat, cartilageMat1, cartilageMat2, 
+        arteryMat1, arteryMat2, bloodMat, transparentMat, transparentPartMat;
     //can earMat2 inherit the alpha properties of earMat1?
 
+    public Animator arteryDistalAnim, earExternalAnim, cartilageAnim;
 
-    public Material arteryMat1, arteryMat2;
-    public Animator arteryDistalAnim;
-
-    public Material bloodMat;
-    public Animator earExternalAnim;
     public ParticleSystem blood1Part, blood2Part;
 
-    public Material cartilageMat1, cartilageMat2;
-    public Animator cartilageAnim;
-
-    public Material skullMat1;
 
 	private void Awake()
 	{
-        arteryProximalRen = arteryProximal.GetComponent<Renderer>();
-        arteryDistalRen = arteryDistal.GetComponent<Renderer>();
-        cartilageRen = cartilage.GetComponent<Renderer>();
-        earExternalRen = earExternal.GetComponent<Renderer>();
-        earCoverRen = earCover.GetComponent<Renderer>();
-        faceRen = face.GetComponent<Renderer>();
         eyesRen = eyes.GetComponent<Renderer>();
         hairRen = hair.GetComponent<Renderer>();
+        faceRen = face.GetComponent<Renderer>();
+        earExternalRen = earExternal.GetComponent<Renderer>();
+        earCoverRen = earCover.GetComponent<Renderer>();
+        cartilageRen = cartilage.GetComponent<Renderer>();
+        arteryProximalRen = arteryProximal.GetComponent<Renderer>();
+        arteryDistalRen = arteryDistal.GetComponent<Renderer>();
     }
 
 	// Start is called before the first frame update
@@ -76,11 +65,18 @@ public class TestAnimationScript : MonoBehaviour
                 Debug.Log("case 1");
                 skull.SetActive(false);  //turn off skull
                 StartCoroutine(CrossfadeMaterial(1.0f, earExternalRen, earMat1, earMat2));  //fade to bruised ear material              
+                //BRUISED EAR MATERIAL NOT WORKING
                 break;
             
             case 2:
                 //artery breaks, blood starts flowing
                 Debug.Log("case 2");
+                StartCoroutine(CrossfadeMaterial(1.0f, faceRen, faceRen.material, skinTransparentMat));  //switch to transparent face
+                StartCoroutine(CrossfadeMaterial(1.0f, earExternalRen, earExternalRen.material, skinTransparentMat));  //switch to transparent ear
+                StartCoroutine(CrossfadeMaterial(1.0f, earCoverRen, earCoverRen.material, skinTransparentMat));  //switch to transparent ear cover
+                StartCoroutine(CrossfadeMaterial(1.0f, arteryProximalRen, arteryProximalRen.material, arteryMat1));  //fade in proximal artery
+                StartCoroutine(CrossfadeMaterial(1.0f, arteryDistalRen, arteryDistalRen.material, arteryMat1));  //fade in distal artery
+                StartCoroutine(CrossfadeMaterial(1.0f, cartilageRen, cartilageRen.material, cartilageMat1));  //fade in cartilage
                 arteryDistalAnim.SetTrigger("play_artery_break");  //play artery break animation
                 blood1.SetActive(true);  //turn on flowing blood
                 StartCoroutine(CrossfadeMaterial(5.0f, arteryDistal.GetComponent<Renderer>(), arteryMat1, arteryMat2));  //fade to dark artery material
@@ -111,6 +107,7 @@ public class TestAnimationScript : MonoBehaviour
                 Debug.Log("case 5");
                 cartilageAnim.SetTrigger("play_shrink_cartilage");
                 //crossfade texture
+                //fade out blood clot?
                 //shrink ear skin too
                 //fade bruise texture on outer ear
                 //switch in aniamted cauliflower ear model to prep for next animation?

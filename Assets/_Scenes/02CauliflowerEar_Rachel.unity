@@ -9956,8 +9956,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84dffbb40ff8dcc43a54e4745a31f839, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transparentMat: {fileID: 2100000, guid: c3816ba813fada84b8e10889cc21b3ea, type: 2}
-  transparentPartMat: {fileID: 2100000, guid: 1b409d598afeee443b3d9837c8bd9fa9, type: 2}
   eyes: {fileID: 213604599847350183}
   hair: {fileID: 6562969782640655878}
   face: {fileID: 8310704755102030111}
@@ -9970,21 +9968,23 @@ MonoBehaviour:
   blood1: {fileID: 649818240}
   blood2: {fileID: 529489887}
   bloodClot: {fileID: 6747248637988993776}
+  skullMat1: {fileID: 2100000, guid: eae4c73c28b8d8242b30b8710444ab85, type: 2}
   earMat1: {fileID: 2100000, guid: 0dc22b4482beaee48b33cb92a52dacfd, type: 2}
   earMat2: {fileID: 2100000, guid: c16d1b7787d0fde4faaa0d9e757876f8, type: 2}
   skinMat: {fileID: 2100000, guid: 0f9adf4cb03eddc43b02d2f291b8a4a5, type: 2}
   skinTransparentMat: {fileID: 2100000, guid: 0dc22b4482beaee48b33cb92a52dacfd, type: 2}
+  cartilageMat1: {fileID: 2100000, guid: 23d09d7192d1ec344ab2f6bcc5432e14, type: 2}
+  cartilageMat2: {fileID: 2100000, guid: 4dd11b3df928d324cbf86ce4a7f225d5, type: 2}
   arteryMat1: {fileID: 2100000, guid: 07134cc0b66d2f54f8cf62b38775079b, type: 2}
   arteryMat2: {fileID: 2100000, guid: 5e7a15cc3ad4cd446844435a12e4d556, type: 2}
-  arteryDistalAnim: {fileID: 6750070404181465164}
   bloodMat: {fileID: 2100000, guid: 56e3dced02d4ebc43a41998a7a6f46e8, type: 2}
+  transparentMat: {fileID: 2100000, guid: c3816ba813fada84b8e10889cc21b3ea, type: 2}
+  transparentPartMat: {fileID: 2100000, guid: 1b409d598afeee443b3d9837c8bd9fa9, type: 2}
+  arteryDistalAnim: {fileID: 6750070404181465164}
   earExternalAnim: {fileID: 6462600668760839945}
+  cartilageAnim: {fileID: 6750563014881006509}
   blood1Part: {fileID: 649818242}
   blood2Part: {fileID: 529489889}
-  cartilageMat1: {fileID: 2100000, guid: 23d09d7192d1ec344ab2f6bcc5432e14, type: 2}
-  cartilageMat2: {fileID: 0}
-  cartilageAnim: {fileID: 6750563014881006509}
-  skullMat1: {fileID: 2100000, guid: eae4c73c28b8d8242b30b8710444ab85, type: 2}
 --- !u!1 &2041267295
 GameObject:
   m_ObjectHideFlags: 0
