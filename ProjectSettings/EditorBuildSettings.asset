@@ -30,7 +30,7 @@ EditorBuildSettings:
     path: Assets/_Scenes/01Fight_Lisa.unity
     guid: afbe695fea3ee734ebf99f15dbcb5515
   - enabled: 1
-    path: Assets/_Scenes/02CauliflowerEar_Lisa.unity
+    path: Assets/_Scenes/02CauliflowerEar_Lisa(delete).unity
     guid: 457f4727efc5b6847b0940946e06737f
   - enabled: 1
     path: Assets/_Scenes/04Quiz_Lisa.unity

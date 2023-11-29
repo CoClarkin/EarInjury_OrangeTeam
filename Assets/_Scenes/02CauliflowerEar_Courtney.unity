@@ -2509,6 +2509,7 @@ GameObject:
   - component: {fileID: 902732696}
   - component: {fileID: 902732695}
   - component: {fileID: 902732698}
+  - component: {fileID: 902732699}
   m_Layer: 0
   m_Name: HitEar_CodePlaceHolder
   m_TagString: Untagged
@@ -2614,6 +2615,22 @@ MonoBehaviour:
   hit4text: {fileID: 0}
   hit5text: {fileID: 0}
   hit6text: {fileID: 0}
+--- !u!114 &902732699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 902732692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6ed13245942c9e4587c20a4ba50021a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalHealth: 3
+  full_healthBar: {fileID: 0}
+  medium_healthBar: {fileID: 0}
+  low_healthBar: {fileID: 0}
 --- !u!1 &906723781
 GameObject:
   m_ObjectHideFlags: 0
