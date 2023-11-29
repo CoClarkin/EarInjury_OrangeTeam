@@ -6,24 +6,24 @@ public class TestAnimationScript : MonoBehaviour
 {
     int hitList = 0;
 
-    public GameObject eyes, hair, face, skull, earExternal, earCover, 
+    public GameObject eyes, hair, face, skull, earNormalToHema, earHemaToShrunk, earShrunkToCauli, earCover, earDrum, earDark,
         cartilage, arteryProximal, arteryDistal, blood1, blood2, bloodClot;
 
-    Renderer eyesRen, hairRen, faceRen, earExternalRen, earCoverRen,
+    Renderer eyesRen, hairRen, faceRen, earNormalToHemaRen, earCoverRen, earCanalRen, earDrumRen, earDarkRen, earShrunkToCauliRen,
         cartilageRen, arteryProximalRen, arteryDistalRen, bloodClotRen;
 
     public Material skullMat1, earMat1, earMat2, skinMat, skinTransparentMat, cartilageMat1, cartilageMat2, 
-        arteryMat1, arteryMat2, bloodMat, transparentMat, transparentPartMat;
+        arteryMat1, arteryMat2, bloodMat, transparentMat, transparentPartMat, darkMat;
 
     public Texture earTexture;    
     public Texture holdingTexture;
     //can earMat2 inherit the alpha properties of earMat1?
 
-    public Animator arteryDistalAnim, earExternalAnim, cartilageAnim;
+    public Animator arteryDistalAnim, earNormalToHemaAnim, earHemaToShrunkAnim, earShrunkToCauliAnim, cartilageAnim;
 
     public ParticleSystem blood1Part, blood2Part;
 
-    public Material dummyMat;
+    //public Material dummyMat;
 
 
 	private void Awake()
@@ -31,8 +31,11 @@ public class TestAnimationScript : MonoBehaviour
         eyesRen = eyes.GetComponent<Renderer>();
         hairRen = hair.GetComponent<Renderer>();
         faceRen = face.GetComponent<Renderer>();
-        earExternalRen = earExternal.GetComponent<Renderer>();
+        earNormalToHemaRen = earNormalToHema.GetComponent<Renderer>();
+        earShrunkToCauliRen = earShrunkToCauli.GetComponent<Renderer>();
         earCoverRen = earCover.GetComponent<Renderer>();
+        earDrumRen = earDrum.GetComponent<Renderer>();
+        earDarkRen = earDark.GetComponent<Renderer>();
         cartilageRen = cartilage.GetComponent<Renderer>();
         arteryProximalRen = arteryProximal.GetComponent<Renderer>();
         arteryDistalRen = arteryDistal.GetComponent<Renderer>();
@@ -55,30 +58,34 @@ public class TestAnimationScript : MonoBehaviour
         {
             case 0:
                 //first zoom in, adjust material transparency
-                Debug.Log("case 0");
+                Debug.Log("case 0: zoom, adjust transparency");
                 StartCoroutine(CrossfadeMaterial(1.0f, faceRen, skinTransparentMat, skinMat));  //fade in face
                 StartCoroutine(CrossfadeMaterial(1.0f, eyesRen, eyesRen.material, transparentMat));  //fade out eyes
                 StartCoroutine(CrossfadeMaterial(1.0f, hairRen, hairRen.material, transparentMat));  //fade out hair
                 StartCoroutine(CrossfadeMaterial(1.0f, arteryProximalRen, arteryMat1, transparentMat));  //fade out proximal artery
                 StartCoroutine(CrossfadeMaterial(1.0f, arteryDistalRen, arteryMat1, transparentMat));  //fade out distal artery
                 StartCoroutine(CrossfadeMaterial(1.0f, cartilageRen, cartilageMat1, transparentMat));  //fade out cartilage
-                StartCoroutine(CrossfadeMaterial(1.0f, earExternalRen, skinTransparentMat, skinMat));  //fade in ear
+                StartCoroutine(CrossfadeMaterial(1.0f, earNormalToHemaRen, skinTransparentMat, skinMat));  //fade in ear
                 StartCoroutine(CrossfadeMaterial(1.0f, earCoverRen, skinTransparentMat, skinMat));  //fade in ear cover
                 break;
             
             case 1:
                 //ear bruises
-                Debug.Log("case 1");
+                Debug.Log("case 1: ear bruises");
                 skull.SetActive(false);  //turn off skull
-                StartCoroutine(CrossfadeTexture(1.0f, earExternalRen, earMat1, earMat2));  //fade to bruised ear material              
+                //earMat1 = earNormalToHemaRen.materials[0];
+                //earMat2 = earNormalToHemaRen.materials[1];
+                //StartCoroutine(CrossfadeAlpha(1.0f, earNormalToHemaRen, earMat1, earMat2));
+                StartCoroutine(CrossfadeMaterial(1.0f, earNormalToHemaRen, earMat1, earMat2));
+                //StartCoroutine(CrossfadeTexture(1.0f earNormalToHemaRen, earMat1, earMat2));  //fade to bruised ear material              
                 //BRUISED EAR MATERIAL NOT WORKING
                 break;
             
             case 2:
                 //artery breaks, blood starts flowing
-                Debug.Log("case 2");
+                Debug.Log("case 2: artery breaks, blood flows");
                 StartCoroutine(CrossfadeMaterial(1.0f, faceRen, faceRen.material, skinTransparentMat));  //switch to transparent face
-                StartCoroutine(CrossfadeMaterial(1.0f, earExternalRen, earExternalRen.material, skinTransparentMat));  //switch to transparent ear
+                StartCoroutine(CrossfadeMaterial(1.0f, earNormalToHemaRen, earNormalToHemaRen.material, skinTransparentMat));  //switch to transparent ear
                 StartCoroutine(CrossfadeMaterial(1.0f, earCoverRen, earCoverRen.material, skinTransparentMat));  //switch to transparent ear cover
                 StartCoroutine(CrossfadeMaterial(1.0f, arteryProximalRen, arteryProximalRen.material, arteryMat1));  //fade in proximal artery
                 StartCoroutine(CrossfadeMaterial(1.0f, arteryDistalRen, arteryDistalRen.material, arteryMat1));  //fade in distal artery
@@ -90,17 +97,17 @@ public class TestAnimationScript : MonoBehaviour
             
             case 3:
                 //hematoma forms
-                Debug.Log("case 3");
+                Debug.Log("case 3: hematoma forms");
                 StartCoroutine(CrossfadeMaterial(5.0f, blood1.GetComponent<Renderer>(), bloodMat, transparentPartMat));  //fade out flowing blood  
                 blood2.SetActive(false); //turn off flowing blood
                 StartCoroutine(CrossfadeMaterial(5.0f, blood2.GetComponent<Renderer>(), transparentPartMat, bloodMat));  //fade in floating blood
                 blood2.SetActive(true);  //turn on floating blood
-                earExternalAnim.SetTrigger("play_hematoma");  //play hematoma animaion
+         earNormalToHemaAnim.SetTrigger("play_hematoma");  //play hematoma animaion
                 break;
             
             case 4:
                 //blood clots
-                Debug.Log("case 4");
+                Debug.Log("case 4: blood clots, blood fades");
                 StartCoroutine(CrossfadeMaterial(3.0f, blood2.GetComponent<Renderer>(), bloodMat, transparentPartMat));  //fade out floating blood
                 bloodClot.SetActive(true);  //turn on blood clot
                 StartCoroutine(CrossfadeMaterial(3.0f, bloodClotRen, transparentMat, arteryMat2));  //fade in blood clot
@@ -108,29 +115,37 @@ public class TestAnimationScript : MonoBehaviour
                 break;
 
             case 5:
-                //cartilage shrinks and changes color
-                //need texture for this
-                Debug.Log("case 5");
+                //cartilage shrinks and changes color, ear shrinks
+                Debug.Log("case 5: cartilage/ear shrinks and turns dark");
+                earNormalToHema.SetActive(false);
+                earHemaToShrunk.SetActive(true);
                 cartilageAnim.SetTrigger("play_shrink_cartilage");
+                earNormalToHemaAnim.SetTrigger("play_hema_to_shrunk");
                 //crossfade texture
-                StartCoroutine(CrossfadeMaterial(10.0f, bloodClotRen, bloodClotRen.material, transparentMat));  //fade out blood clot?
-                //shrink ear skin too
+                StartCoroutine(CrossfadeMaterial(100.0f, bloodClotRen, bloodClotRen.material, transparentMat));  //fade out blood clot
                 //fade bruise texture on outer ear
-                //switch in aniamted cauliflower ear model to prep for next animation?
-                //or figure out how to use keyframes. animation events? going to need this for onmousedown to work.
                 break;
 
             case 6:
                 //cauliflower ear develops
-                Debug.Log("case 6");
+                Debug.Log("case 6: cauliflower ear develops");
+                earHemaToShrunk.SetActive(false);
+                earShrunkToCauli.SetActive(true);
+                arteryProximal.SetActive(false);
+                StartCoroutine(CrossfadeMaterial(5.0f, earShrunkToCauliRen, earShrunkToCauliRen.material, skinMat));
+                StartCoroutine(CrossfadeMaterial(5.0f, faceRen, faceRen.material, skinMat));
+                StartCoroutine(CrossfadeMaterial(5.0f, earCoverRen, earCoverRen.material, skinMat));
+                earShrunkToCauliAnim.SetTrigger("play_shrunk_to_cauli");  //play cauliflower ear animation
                 //fade in ear texture
-                //play cauliflower ear animation
                 bloodClot.SetActive(false);
                 break;
 
             case 7:
                 //ear drum rips
-                Debug.Log("case 7");
+                Debug.Log("case 7: eardrum rips");
+                StartCoroutine(CrossfadeMaterial(5.0f, earCoverRen, earCoverRen.material, transparentMat));
+                StartCoroutine(CrossfadeMaterial(5.0f, earDrumRen, earDrumRen.material, skinMat));
+                StartCoroutine(CrossfadeMaterial(5.0f, earDarkRen, earDarkRen.material, darkMat));
                 break;
         }
         hitList += 1;
@@ -143,19 +158,18 @@ public class TestAnimationScript : MonoBehaviour
 
         while (elapsedTime < duration)
         {
+           
             elapsedTime += Time.deltaTime;
-
-            
-
             ren.material.Lerp(mat1, mat2, elapsedTime / duration);
             yield return null;
         }
+        
     }
 
     private IEnumerator CrossfadeTexture(float duration, Renderer ren, Material mat1, Material mat2)
     //fades one material into another over a defined duration of time
     {
-        float elapsedTime = 0f;
+       /* float elapsedTime = 0f;
 
         while (elapsedTime < duration)
         {
@@ -167,14 +181,30 @@ public class TestAnimationScript : MonoBehaviour
             dummyMat.mainTexture = earTexture;
            
 
-            earExternalRen.material.Lerp(ren.material, dummyMat, elapsedTime / duration);
+     earNormalToHemaRen.material.Lerp(ren.material, dummyMat, elapsedTime / duration);
           
 
            
-            yield return null;
-        }
+            
+        }*/
+        yield return null;
     }
+/*
+private IEnumerator CrossfadeAlpha(float duration, Renderer ren, Material mat1, Material mat2)
+    //fades one material into another over a defined duration of time
+    {
+        float elapsedTime = 0f;
 
+        while (elapsedTime < duration)
+        {
+            ren.materials[0].color = Color.green;//mat1.color.a*(1-elapsedTime);
+          
+
+           
+            
+        }
+        yield return null;
+    }*/
 
     //https://stackoverflow.com/questions/64510141/using-a-coroutine-in-unity3d-to-fade-a-game-object-out-and-back-in-looping-inf
 
