@@ -119,8 +119,8 @@ public class TestAnimationScript : MonoBehaviour
                 Debug.Log("case 5: cartilage/ear shrinks and turns dark");
                 earNormalToHema.SetActive(false);
                 earHemaToShrunk.SetActive(true);
-                cartilageAnim.SetTrigger("play_shrink_cartilage");
-                earNormalToHemaAnim.SetTrigger("play_hema_to_shrunk");
+                //cartilageAnim.SetTrigger("play_shrink_cartilage");
+                earHemaToShrunkAnim.SetTrigger("play_hema_to_shrunk");
                 //crossfade texture
                 StartCoroutine(CrossfadeMaterial(100.0f, bloodClotRen, bloodClotRen.material, transparentMat));  //fade out blood clot
                 //fade bruise texture on outer ear
