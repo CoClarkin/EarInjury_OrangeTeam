@@ -58,6 +58,7 @@ public class TestAnimationScript : MonoBehaviour
     void Update()
     {
         Fade(earNormalToHema1Ren, earNormal, earNormalToHema2Ren, earBruised);
+        //Fade();
         
         /*if (fade)
         {
@@ -103,6 +104,10 @@ public class TestAnimationScript : MonoBehaviour
                 Color temp = new Color(color2.r, color2.g, color2.b, fadein);
                 ren2.material.color = temp;
                 fadein = temp.a + (fadeSpeed * Time.deltaTime);
+            }
+            else
+            {
+                fade = false;
             }
         }
     }
@@ -175,10 +180,9 @@ public class TestAnimationScript : MonoBehaviour
                 Debug.Log("case 5: cartilage/ear shrinks and turns dark");
                 earNormalToHema2.SetActive(false);
                 earHemaToShrunk.SetActive(true);
-                //cartilageAnim.SetTrigger("play_shrink_cartilage");
+                cartilageAnim.SetTrigger("play_shrink_cartilage");
                 earHemaToShrunkAnim.SetTrigger("play_hema_to_shrunk");
-                //crossfade texture
-                StartCoroutine(CrossfadeMaterial(100.0f, bloodClotRen, bloodClotRen.material, transparentMat));  //fade out blood clot
+                StartCoroutine(CrossfadeMaterial(10.0f, bloodClotRen, bloodClotRen.material, transparentMat));  //fade out blood clot
                 //fade bruise texture on outer ear
                 break;
 
