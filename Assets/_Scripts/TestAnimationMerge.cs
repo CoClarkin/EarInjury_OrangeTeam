@@ -114,19 +114,19 @@ public class TestAnimationMerge : MonoBehaviour
 
            public void EarAnim1()
             //adjust transparency on zoom in
-            {
+           {
                 Debug.Log("case 0: zoom, adjust transparency");
-                // StartCoroutine(CrossfadeMaterial(1.0f, faceRen, skinTransparentMat, skinMat));  //fade in face
-                // StartCoroutine(CrossfadeMaterial(1.0f, eyesRen, eyesRen.material, transparentMat));  //fade out eyes
-                // StartCoroutine(CrossfadeMaterial(1.0f, hairRen, hairRen.material, transparentMat));  //fade out hair
-                // StartCoroutine(CrossfadeMaterial(1.0f, arteryProximalRen, arteryMat1, transparentMat));  //fade out proximal artery
-                // StartCoroutine(CrossfadeMaterial(1.0f, arteryDistalRen, arteryMat1, transparentMat));  //fade out distal artery
-                // StartCoroutine(CrossfadeMaterial(1.0f, cartilageRen, cartilageMat1, transparentMat));  //fade out cartilage
-                // StartCoroutine(CrossfadeMaterial(1.0f, earNormalToHema1Ren, skinTransparentMat, skinMat));  //fade in ear
-                // StartCoroutine(CrossfadeMaterial(1.0f, earCoverRen, skinTransparentMat, skinMat));  //fade in ear cover
-            }
+		        StartCoroutine(CrossfadeMaterial(1.0f, faceRen, skinTransparentMat, skinMat));  //fade in face
+		        StartCoroutine(CrossfadeMaterial(1.0f, eyesRen, eyesRen.material, transparentMat));  //fade out eyes
+		        StartCoroutine(CrossfadeMaterial(1.0f, hairRen, hairRen.material, transparentMat));  //fade out hair
+		        StartCoroutine(CrossfadeMaterial(1.0f, arteryProximalRen, arteryMat1, transparentMat));  //fade out proximal artery
+		        StartCoroutine(CrossfadeMaterial(1.0f, arteryDistalRen, arteryMat1, transparentMat));  //fade out distal artery
+		        StartCoroutine(CrossfadeMaterial(1.0f, cartilageRen, cartilageMat1, transparentMat));  //fade out cartilage
+		        StartCoroutine(CrossfadeMaterial(1.0f, earNormalToHema1Ren, skinTransparentMat, skinMat));  //fade in ear
+		        StartCoroutine(CrossfadeMaterial(1.0f, earCoverRen, skinTransparentMat, skinMat));  //fade in ear cover
+	       }
             
-            void EarAnim2()
+            public void EarAnim2()
             //ear bruises
             {
                 Debug.Log("case 1: ear bruises");
@@ -141,7 +141,7 @@ public class TestAnimationMerge : MonoBehaviour
                 
             }
             
-            void EarAnim3()
+            public void EarAnim3()
             //artery breaks, blood starts flowing
             {
                 Debug.Log("case 2: artery breaks, blood flows");
@@ -156,7 +156,7 @@ public class TestAnimationMerge : MonoBehaviour
                 StartCoroutine(CrossfadeMaterial(5.0f, arteryDistalRen, arteryMat1, arteryMat2));  //fade to dark artery material
             }
             
-            void EarAnim4()
+            public void EarAnim4()
                 //hematoma forms
             {
                 Debug.Log("case 3: hematoma forms");
@@ -167,7 +167,7 @@ public class TestAnimationMerge : MonoBehaviour
                 earNormalToHemaAnim.SetTrigger("play_hematoma");  //play hematoma animaion
             }
             
-            void EarAnim5()
+            public void EarAnim5()
                 //blood clots
             {
                 Debug.Log("case 4: blood clots, blood fades");
@@ -177,7 +177,7 @@ public class TestAnimationMerge : MonoBehaviour
                 StartCoroutine(CrossfadeMaterial(3.0f, arteryDistalRen, arteryDistalRen.material, transparentMat));  //fade out distal artery
             }
 
-            void EarAnim6()
+            public void EarAnim6()
                 //cartilage shrinks and changes color, ear shrinks
             {
                 Debug.Log("case 5: cartilage/ear shrinks and turns dark");
@@ -189,7 +189,7 @@ public class TestAnimationMerge : MonoBehaviour
                 //fade bruise texture on outer ear
             }
 
-            void EarAnim7()
+            public void EarAnim7()
                 //cauliflower ear develops
             {
                 Debug.Log("case 6: cauliflower ear develops");
@@ -204,7 +204,7 @@ public class TestAnimationMerge : MonoBehaviour
                 bloodClot.SetActive(false);
             }
 
-            void EarAnim8()
+            public void EarAnim8()
                 //ear drum rips
             {
                 Debug.Log("case 7: transition to eardrum rips");

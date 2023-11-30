@@ -74,7 +74,7 @@ public class HitsTwo : MonoBehaviour
             HB2.SetActive(true);
             hit1text.SetActive(false);
             hit2text.SetActive(true);
-
+            testAnimationMerge.EarAnim2();
             break;
             
             case 3:
@@ -84,6 +84,7 @@ public class HitsTwo : MonoBehaviour
             HB3.SetActive(true);
             hit2text.SetActive(false);
             hit3text.SetActive(true);
+            testAnimationMerge.EarAnim3();
             break;
 
             case 4:
@@ -93,6 +94,7 @@ public class HitsTwo : MonoBehaviour
             HB4.SetActive(true);
             hit3text.SetActive(false);
             hit4text.SetActive(true);
+            testAnimationMerge.EarAnim4();
             break;
 
             case 5:
@@ -102,6 +104,7 @@ public class HitsTwo : MonoBehaviour
             HB5.SetActive(true);
             hit4text.SetActive(false);
             hit5text.SetActive(true);
+            testAnimationMerge.EarAnim5();
             break;
 
             case 6:
@@ -109,6 +112,7 @@ public class HitsTwo : MonoBehaviour
             audioManager.SlapAudioTrigger();
             hit5text.SetActive(false);
             hit6text.SetActive(true);
+            testAnimationMerge.EarAnim6();
             break;
 
 
