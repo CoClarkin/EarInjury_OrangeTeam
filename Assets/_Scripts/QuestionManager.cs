@@ -15,6 +15,8 @@ public class QuestionManager : MonoBehaviour
     private AudioSource correctAudio;
     private AudioSource incorrectAudio;
 
+
+    public bool isConfirmed = false;
     // Start is called before the first frame update
     
     void Start()
@@ -27,6 +29,7 @@ public class QuestionManager : MonoBehaviour
 
     public void OnConfirmClick()
     {
+        
         for (int i = 0; i < transform.childCount; i++)
             {
                 if(transform.GetChild(i).GetComponent<Toggle>())
