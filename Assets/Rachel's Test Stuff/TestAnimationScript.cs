@@ -57,7 +57,9 @@ public class TestAnimationScript : MonoBehaviour
 
     void Update()
     {
-        if (fade)
+        Fade(earNormalToHema1Ren, earNormal, earNormalToHema2Ren, earBruised);
+        
+        /*if (fade)
         {
             if (fadeout > 0.0f)
             {
@@ -72,7 +74,7 @@ public class TestAnimationScript : MonoBehaviour
                 earNormalToHema2Ren.material.color = temp;
                 fadein = temp.a + (fadeSpeed * Time.deltaTime);
             }
-        }
+        }*/
     }
 
     // Start is called before the first frame update
@@ -85,6 +87,26 @@ public class TestAnimationScript : MonoBehaviour
         
     }
 	
+    void Fade(Renderer ren1, Color color1, Renderer ren2, Color color2)
+    {
+        if (fade)
+        {
+            if (fadeout > 0.0f)
+            {
+                Color temp = new Color(color1.r, color1.g, color1.b, fadeout);
+                ren1.material.color = temp;
+                fadeout = temp.a - (fadeSpeed * Time.deltaTime);
+            }
+
+            if (fadein < 1.0f)
+            {
+                Color temp = new Color(color2.r, color2.g, color2.b, fadein);
+                ren2.material.color = temp;
+                fadein = temp.a + (fadeSpeed * Time.deltaTime);
+            }
+        }
+    }
+
     void OnMouseDown()
 	{
         switch (hitList)
