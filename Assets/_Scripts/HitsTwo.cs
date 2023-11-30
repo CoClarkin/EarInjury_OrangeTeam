@@ -6,7 +6,7 @@ public class HitsTwo : MonoBehaviour
 {
     public int totalHit = 1;
     public AudioSource slapCompilation;
-    public TestAnimationMerge testAnimationMerge;
+    public TestAnimationScript testAnimationScript;
 
 
     public GameObject hit1text;
@@ -29,7 +29,7 @@ public class HitsTwo : MonoBehaviour
     void Start()
     {
         audioManager = FindObjectOfType<AudioManager>();
-        testAnimationMerge = FindObjectOfType<TestAnimationMerge>();
+        testAnimationScript = FindObjectOfType<TestAnimationScript>();
     }
 
     // Update is called once per frame
@@ -60,7 +60,7 @@ public class HitsTwo : MonoBehaviour
             HB0.SetActive(false);
             HB1.SetActive(true);
             audioManager.SlapAudioTrigger();
-            testAnimationMerge.EarAnim1();
+            testAnimationScript.EarAnim1();
             //if adio hasnt played bool = false if audio has played bool = true if 
             //fix in audio manager to play random range once 
             //HealthBar
@@ -74,7 +74,7 @@ public class HitsTwo : MonoBehaviour
             HB2.SetActive(true);
             hit1text.SetActive(false);
             hit2text.SetActive(true);
-            testAnimationMerge.EarAnim2();
+            testAnimationScript.EarAnim2();
             break;
             
             case 3:
@@ -84,7 +84,7 @@ public class HitsTwo : MonoBehaviour
             HB3.SetActive(true);
             hit2text.SetActive(false);
             hit3text.SetActive(true);
-            testAnimationMerge.EarAnim3();
+            testAnimationScript.EarAnim3();
             break;
 
             case 4:
@@ -94,7 +94,7 @@ public class HitsTwo : MonoBehaviour
             HB4.SetActive(true);
             hit3text.SetActive(false);
             hit4text.SetActive(true);
-            testAnimationMerge.EarAnim4();
+            testAnimationScript.EarAnim4();
             break;
 
             case 5:
@@ -104,7 +104,7 @@ public class HitsTwo : MonoBehaviour
             HB5.SetActive(true);
             hit4text.SetActive(false);
             hit5text.SetActive(true);
-            testAnimationMerge.EarAnim5();
+            testAnimationScript.EarAnim5();
             break;
 
             case 6:
@@ -112,7 +112,7 @@ public class HitsTwo : MonoBehaviour
             audioManager.SlapAudioTrigger();
             hit5text.SetActive(false);
             hit6text.SetActive(true);
-            testAnimationMerge.EarAnim6();
+            testAnimationScript.EarAnim6();
             break;
 
 

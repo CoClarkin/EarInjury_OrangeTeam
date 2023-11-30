@@ -1227,6 +1227,7 @@ GameObject:
   - component: {fileID: 387312230}
   - component: {fileID: 387312232}
   - component: {fileID: 387312231}
+  - component: {fileID: 387312233}
   m_Layer: 0
   m_Name: hits2_script_holder
   m_TagString: Untagged
@@ -1263,7 +1264,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalHit: 1
   slapCompilation: {fileID: 848103692}
-  testAnimationMerge: {fileID: 0}
+  testAnimationScript: {fileID: 0}
   hit1text: {fileID: 1730212925}
   hit2text: {fileID: 969756409}
   hit3text: {fileID: 400403234}
@@ -1290,6 +1291,58 @@ CapsuleCollider:
   m_Height: 0.9074097
   m_Direction: 1
   m_Center: {x: 0.01999625, y: -0.027040834, z: 0.019216064}
+--- !u!114 &387312233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387312229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84dffbb40ff8dcc43a54e4745a31f839, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eyes: {fileID: 213604599847350183}
+  hair: {fileID: 6562969782640655878}
+  face: {fileID: 8310704755102030111}
+  skull: {fileID: 5473640507214873895}
+  earNormalToHema1: {fileID: 1124576028}
+  earNormalToHema2: {fileID: 5972922911453957554}
+  earHemaToShrunk: {fileID: 1822081689879260904}
+  earShrunkToCauli: {fileID: 7918687375621356568}
+  earCover: {fileID: 3896278692540571098}
+  earDrum: {fileID: 6548294335678134600}
+  earDark: {fileID: 8599786496487571752}
+  cartilage: {fileID: 6750563014881006508}
+  arteryProximal: {fileID: 6770199509241931245}
+  arteryDistal: {fileID: 6261905535972229873}
+  blood1: {fileID: 649818240}
+  blood2: {fileID: 529489887}
+  bloodClot: {fileID: 6747248637988993776}
+  skullMat1: {fileID: 2100000, guid: eae4c73c28b8d8242b30b8710444ab85, type: 2}
+  earMat1: {fileID: 2100000, guid: 0dc22b4482beaee48b33cb92a52dacfd, type: 2}
+  earMat2: {fileID: 2100000, guid: c16d1b7787d0fde4faaa0d9e757876f8, type: 2}
+  skinMat: {fileID: 2100000, guid: 0f9adf4cb03eddc43b02d2f291b8a4a5, type: 2}
+  skinTransparentMat: {fileID: 2100000, guid: 0dc22b4482beaee48b33cb92a52dacfd, type: 2}
+  cartilageMat1: {fileID: 2100000, guid: 23d09d7192d1ec344ab2f6bcc5432e14, type: 2}
+  cartilageMat2: {fileID: 2100000, guid: 4dd11b3df928d324cbf86ce4a7f225d5, type: 2}
+  arteryMat1: {fileID: 2100000, guid: 07134cc0b66d2f54f8cf62b38775079b, type: 2}
+  arteryMat2: {fileID: 2100000, guid: 5e7a15cc3ad4cd446844435a12e4d556, type: 2}
+  bloodMat: {fileID: 2100000, guid: 56e3dced02d4ebc43a41998a7a6f46e8, type: 2}
+  transparentMat: {fileID: 2100000, guid: c3816ba813fada84b8e10889cc21b3ea, type: 2}
+  transparentPartMat: {fileID: 2100000, guid: 1b409d598afeee443b3d9837c8bd9fa9, type: 2}
+  darkMat: {fileID: 2100000, guid: d375383ef87fd0146a174994af3f95c0, type: 2}
+  earTexture: {fileID: 2800000, guid: 3efe86e436cd19244b74e59bb133aa4b, type: 3}
+  holdingTexture: {fileID: 2800000, guid: 90e9439002a38c14abae586f1fbdb076, type: 3}
+  arteryDistalAnim: {fileID: 6750070404181465164}
+  earNormalToHemaAnim: {fileID: 6462600668760839945}
+  earHemaToShrunkAnim: {fileID: 6883133768619166636}
+  earShrunkToCauliAnim: {fileID: 7918687375621356569}
+  cartilageAnim: {fileID: 6750563014881006509}
+  blood1Part: {fileID: 649818242}
+  blood2Part: {fileID: 529489889}
+  fadeSpeed: 1
 --- !u!1 &400403234
 GameObject:
   m_ObjectHideFlags: 0
@@ -6382,7 +6435,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 122f63c60f9a9b341a6ca45b76b73c2d, type: 3}
-  m_Color: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -13151,7 +13204,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1387298426
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13237,7 +13290,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1387298425}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 84dffbb40ff8dcc43a54e4745a31f839, type: 3}
   m_Name: 
